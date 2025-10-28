@@ -1,0 +1,29 @@
+ExpenseTracker/
+│
+├── .vscode/
+├── Login System/
+│   ├── login.php                       
+│   ├── register.php                    
+├── node_modules/                      
+├── public/                            
+│   ├── css/
+│   │   ├── output.css                  # main compiled CSS file
+│   │   └── style.css                   # Custom CSS
+│   ├── js/
+│   │   └── main.js                     
+│                           
+│
+├── includes/                          
+│   ├── connect.php                     # Database credentials & 
+│   ├── connectionDB.php                # Alternative or helper DB 
+│   ├── navbar.php                      # Navigation bar included 
+│   └── session.php                     # Handles login session                             
+│   ├── index.php                       # Dashboard + Add new 
+│   ├── viewNew.php                     # Page to view new expense 
+│   ├── edit.php                        # Page for editing expense 
+│   └── delete.php                      # Page for deleting 
+│
+├── .gitignore                          # Git ignore rules
+├── package.json                        # Node dependencies + scripts
+├── package-lock.json                  
+└── README.md                           
