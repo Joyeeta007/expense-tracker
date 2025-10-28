@@ -21,90 +21,6 @@
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>Expense Managment</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        background: #f5f7fa;
-    }
-
-    header {
-        background: #333;
-        color: white;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .header-buttons {
-        display: flex;
-        gap: 10px;
-    }
-
-    .header-buttons form {
-        display: inline;
-    }
-
-    .header-buttons button {
-        background: #4CAF50;
-        border: none;
-        padding: 8px 14px;
-        color: white;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .header-buttons button.logout {
-        background: #f44336;
-    }
-
-    .container {
-        margin: 40px auto;
-        max-width: 800px;
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .expense-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 10px;
-    }
-
-    .expense-row input, .expense-row select {
-        padding: 6px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        flex: 1;
-    }
-
-    .submit-expense {
-        background: #2196F3;
-        color: white;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .add-btn {
-        display: block;
-        margin: 20px auto 0 auto;
-        background: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 36px;
-        height: 36px;
-        font-size: 20px;
-        cursor: pointer;
-    }
-</style>
-
 </head>
 
 <body>
@@ -114,30 +30,85 @@
 
   <!---------------------------navbaar end --------------------------------->
 
-<div class="container">
-    <h3>Add Your Expenses</h3>
-    <form method="POST" id="expenseForm">
-        <div id="expenseRows">
-            <div class="expense-row">
-                <input type="text" name="item[]" placeholder="Item" required>
-                <select name="category[]" required>
-                    <option value="">Select Category</option>
-                    <option value="Food">Food</option>
-                    <option value="Transport">Transport</option>
-                    <option value="Bills">Bills</option>
-                    <option value="Shopping">Shopping</option>
-                    <option value="Others">Others</option>
-                </select>
-                <input type="number" name="cost[]" placeholder="Cost" min="0" step="0.01" required>
+  <div class="mt-10 w-full flex flex-col items-center">
+
+    <form id="expenseForm" class="flex flex-col items-center gap-4" action="connect.php" method="post">
+
+        <!-- Dynamic Rows Container -->
+        <div id="expenseRows" class="flex flex-col gap-3">
+
+            <!-- One Horizontal Row (Original inputs) -->
+            <div class="flex items-center gap-4 flex-nowrap expense-row">
+
+                <!-- Amount -->
+                <label class="flex flex-col">
+                    <span class="text-gray-700 text-sm font-semibold">Amount *</span>
+                    <input type="number" name="expense[]" required min="0.01" step="0.01"
+                    class="input input-bordered input-sm w-32" placeholder="Amount">
+                </label>
+
+                <!-- Category -->
+                <label class="flex flex-col">
+                    <span class="text-gray-700 text-sm font-semibold">Category *</span>
+                    <select name="category[]" required class="select select-bordered select-sm w-32">
+                        <option disabled selected value="">Choose</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="cha">Cha</option>
+                        <option value="coffee">Coffee</option>
+                        <option value="vara">Vara</option>
+                        <option value="medicine">Medicine</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="others">Others</option>
+                    </select>
+                </label>
+
+                <!-- Description -->
+                <label class="flex flex-col">
+                    <span class="text-gray-700 text-sm font-semibold">Description *</span>
+                    <input name="description[]" class="input input-bordered input-sm w-64" placeholder="Description">
+                </label>
+
+                <!-- Payment -->
+                <label class="flex flex-col">
+                    <span class="text-gray-700 text-sm font-semibold">Payment *</span>
+                    <select name="payment[]" required class="select select-bordered select-sm w-32">
+                        <option disabled selected value="">Choose</option>
+                        <option value="bKash">bKash</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Nagad">Nagad</option>
+                        <option value="Rocket">Rocket</option>
+                        <option value="Card">Card</option>
+                    </select>
+                </label>
+
             </div>
+
         </div>
 
-        <button type="button" class="add-btn" id="addRow">+</button>
-        <br><br>
-        <button type="submit" name="submit_expense" class="submit-expense">Submit Expense</button>
+        <!-- ➕ Add more row button -->
+        <button type="button" id="addRowBtn" class="btn btn-circle btn-outline text-xl mt-2">+</button>
+
+        <!-- Buttons (already centered by you earlier) -->
+        <div class="w-full flex justify-center gap-4 mt-6">
+            <button class="btn btn-sm" name="btnSubmit" type="submit">Submit</button>
+            <a href="viewNew.php" class="btn btn-sm" name="viewExpense">View</a>
+        </div>
+
     </form>
+
+</div>
+
   </div>
-<dialog id="my_modal_1" class="modal">
+
+
+
+
+
+
+
+
+    <dialog id="my_modal_1" class="modal">
     <div class="modal-box">
         <p id="modal_message" class="py-4">Inserted Successfully</p>
         <div class="modal-action">
@@ -147,25 +118,9 @@
         </div>
     </div>
     </dialog>
-<script>
-    document.getElementById('addRow').addEventListener('click', function() {
-        const expenseRows = document.getElementById('expenseRows');
-        const newRow = document.createElement('div');
-        newRow.classList.add('expense-row');
-        newRow.innerHTML = `
-            <input type="text" name="item[]" placeholder="Item" required>
-            <select name="category[]" required>
-                <option value="">Select Category</option>
-                <option value="Food">Food</option>
-                <option value="Transport">Transport</option>
-                <option value="Bills">Bills</option>
-                <option value="Shopping">Shopping</option>
-                <option value="Others">Others</option>
-            </select>
-            <input type="number" name="cost[]" placeholder="Cost" min="0" step="0.01" required>
-        `;
-        expenseRows.appendChild(newRow);
-           document.getElementById('expenseForm').addEventListener("submit", function(e) {
+
+ <script>
+   document.getElementById('expenseForm').addEventListener("submit", function(e) {
       e.preventDefault();
 
       let formData = new FormData(this);
@@ -192,7 +147,17 @@
         document.getElementById('my_modal_1').showModal();
       });
     });
-    });
-  </script>
+
+    document.getElementById("addRowBtn").addEventListener("click", function() {
+    let row = document.querySelector(".expense-row").cloneNode(true);
+    
+    // Clear values for new row
+    row.querySelectorAll("input, select").forEach(el => el.value = "");
+
+    document.getElementById("expenseRows").appendChild(row);
+});
+</script>
+
+  </div>
 </body>
 </html>
