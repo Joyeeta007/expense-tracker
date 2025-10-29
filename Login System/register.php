@@ -80,7 +80,8 @@
               ?>
             </p>
            
-            <button name="registerBtn" class="btn bg-[#5d6d7e] hover:bg-white hover:text-black text-white mt-4">Register</button>
+            <button name="registerBtn" class="btn bg-[#0096FF] hover:bg-[#A7C7E7] hover:text-black text-white mt-4">Register</button>
+
           </fieldset>
         </form>
           <div class="flex justify-between">Already Registered?<a href="login.php" class="link ml-5 link-hover text-red-500 mb-5">Login</a></div>

@@ -25,7 +25,7 @@
         </h2>
         </div>
         <table class="w-full border-x-2 border-b-2 dark:border-gray-200 text-sm text-left rtl:text-right text-gray-500 dark:text-black">
-            <thead class="text-xs sm:rounded-lg shadow-md text-center text-gray-700 uppercase  dark:bg-[#5d6d7e] dark:text-gray-100">
+            <thead class="text-xs sm:rounded-lg shadow-md text-center text-gray-700 uppercase  dark:bg-[#0096FF] dark:text-gray-100">
                 <tr>
                     <th scope="col" class="px-6 py-3">Record No.</th>
                     <th scope="col" class="px-6 py-3">Date</th>

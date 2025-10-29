@@ -15,7 +15,7 @@
     <title>Expense Tracker</title>
 </head>
 <body>
-<div class="navbar px-10 bg-[#5d6d7e] shadow-lg">
+<div class="navbar px-10 bg-[#0096FF] shadow-lg">
     <div class="flex-1">
       <a href='index.php' class="btn text-white btn-ghost text-xl">Expense Tracker</a>
     </div>

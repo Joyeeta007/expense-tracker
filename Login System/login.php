@@ -45,7 +45,7 @@
   <div class="hero w-full bg-base-200 min-h-screen h-full">
     <div class="hero-content flex flex-col">
       <div class="text-center lg:text-center">
-        <h1 class="text-4xl mb-4 text-[#2c3e50] font-bold">Login now!</h1>
+        <h1 class="text-4xl mb-4 text-[#2c3e50] font-bold">Login NOW</h1>
       </div>
       <div class="card bg-base-100 w-5xl max-w-sm shrink-0 shadow-2xl">
         <div class="card-body h-[400px] ">
@@ -63,7 +63,7 @@
               }
               ?>
             </div>
-              <button type='submit' name="loginBtn" class="btn bg-[#5d6d7e] hover:bg-white hover:text-black text-white mt-4">Login</button>
+              <button type='submit' name="loginBtn" class="btn bg-[#0096FF] hover:bg-[#A7C7E7] hover:text-black text-white mt-4">Login</button>
             </fieldset>
             <p class="flex justify-between mt-2">
               Didn't registered yet? <a href="register.php" class="link hover:text-red-500 link-hover mb-5 text-[#2471a3]">Register</a>

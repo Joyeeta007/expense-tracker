@@ -91,8 +91,10 @@
 
         <!-- Buttons (already centered by you earlier) -->
         <div class="w-full flex justify-center gap-4 mt-6">
-            <button class="btn btn-sm" name="btnSubmit" type="submit">Submit</button>
-            <a href="viewNew.php" class="btn btn-sm" name="viewExpense">View</a>
+            <button class="btn bg-[#0096FF] hover:bg-[#A7C7E7]
+            btn-md text-white" name="btnSubmit" type="submit">Submit</button>
+            <a href="viewNew.php" class="btn text-white bg-[#0096FF] 
+            hover:bg-[#A7C7E7] btn-md" name="viewExpense">View</a>
         </div>
 
     </form>
